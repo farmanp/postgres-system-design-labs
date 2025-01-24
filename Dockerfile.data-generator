@@ -1,0 +1,14 @@
+# Use the Python base image
+FROM python:3.9-slim
+
+# Set the working directory in the container
+WORKDIR /scripts
+
+# Copy the scripts folder into the container
+COPY scripts /scripts
+
+# Install dependencies
+RUN pip install psycopg2-binary faker
+
+# Set the default command to run your script
+CMD ["python", "generate_data.py"]
